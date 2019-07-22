@@ -310,7 +310,7 @@ kubectl -n $ROOK_NAMESPACE patch CephCluster $CLUSTER_NAME --type=merge \
 As with upgrading Rook, you must now wait for the upgrade to complete. Determining when the Ceph
 version has fully updated is rather simple.
 ```sh
-watch kubectl -n $ROOK_NAMESPACE describe pods | grep "Image:.*ceph/ceph" | sort | uniq
+watch "kubectl -n $ROOK_NAMESPACE describe pods | grep \"Image:.*ceph/ceph\" | sort | uniq"
 # This cluster is not yet finished:
 #      Image:         ceph/ceph:v13.2.2-20181023
 #      Image:         ceph/ceph:v14.2.1-20190430
